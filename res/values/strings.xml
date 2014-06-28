@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lysterr</string>
+
+    <!-- menu -->
+    <string name="menu_post">Post</string>
+    <string name="menu_logout">Logout</string>
+</resources>
