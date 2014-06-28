@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
@@ -35,5 +37,14 @@ public class PostListFragment extends ListFragment {
         setListAdapter(mAdapter);
 
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        ParseObject post = mAdapter.getItem(position);
+        String postId = post.getObjectId();
+
+        PostListDelegate delegate = (PostListDelegate)getActivity();
+        delegate.onPostSelected(postId);
     }
 }

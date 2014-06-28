@@ -23,9 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2886686f-2068-411b-8c73-4c7ee3f7bb4a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/data/ParseClass.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/data/ParsePostField.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostDetailsFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/interfaces/PostListDelegate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/util/Registry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/util/UiUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/fragment_post_details.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/menu_post_details.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lysterr/Lysterr/app/AppLysterr.java" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/app/AppLysterr.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lysterr/Lysterr/MyActivity.java" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/MyActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Lysterr.iws" />
@@ -92,10 +101,12 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1215">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1440">
+              <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2524#2525#0" expanded="true" />
+                <element signature="e#2563#2564#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,24 +128,63 @@
       <file leaf-file-name="PostListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74358976" vertical-offset="0" max-vertical-offset="675">
-              <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.71794873" vertical-offset="0" max-vertical-offset="840">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#558#559#0" expanded="true" />
-                <element signature="e#603#604#0" expanded="true" />
+                <element signature="e#656#657#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/app/ListFragment.java">
+      <file leaf-file-name="PostDetailsFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostDetailsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4493" max-vertical-offset="6135">
-              <caret line="147" column="13" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
+              <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+              <folding>
+                <element signature="e#1254#1255#0" expanded="true" />
+                <element signature="e#1304#1305#0" expanded="true" />
+                <element signature="e#1973#2411#0" expanded="true" />
+                <element signature="e#2335#2367#0" expanded="true" />
+                <element signature="e#2400#2401#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <caret line="10" column="100" selection-start-line="10" selection-start-column="100" selection-end-line="10" selection-end-column="100" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Registry.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/util/Registry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_post_details.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/fragment_post_details.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.666666" vertical-offset="0" max-vertical-offset="825">
+              <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -144,31 +194,6 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-              <folding>
-                <element signature="e#744#762#0" expanded="true" />
-                <element signature="e#1088#1106#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppLysterr.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/app/AppLysterr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -194,19 +219,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/app/AppLysterr.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/res/menu/menu_post_details.xml" />
+        <option value="$PROJECT_DIR$/res/layout/fragment_post_details.xml" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/data/ParseClass.java" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/util/Registry.java" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/app/AppLysterr.java" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/data/ParsePostField.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/util/UiUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostDetailsFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/interfaces/PostListDelegate.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/MyActivity.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="27" />
-    <option name="y" value="103" />
+    <option name="x" value="18" />
+    <option name="y" value="37" />
     <option name="width" value="1605" />
     <option name="height" value="987" />
   </component>
@@ -305,7 +338,149 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="interfaces" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lysterr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android4" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,10 +503,17 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../clearslide/intellij_project_files" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="4.7_in_xhdpi_x86" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lysterr.Lysterr.data" />
+      <recent name="com.lysterr.Lysterr.fragments" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/menu" />
+      <recent name="$PROJECT_DIR$/res/layout" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.android4">
@@ -509,7 +691,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="27" y="103" width="1605" height="987" extended-state="0" />
+    <frame x="18" y="37" width="1605" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -636,16 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/app/AppLysterr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/subprojects/ParseUI-Android/ParseLoginUI/src/com/parse/ui/ParseLoginFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.807693" vertical-offset="4632" max-vertical-offset="5115">
@@ -653,22 +825,6 @@
           <folding>
             <element signature="e#14624#14625#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15384616" vertical-offset="0" max-vertical-offset="585">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/menu_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,24 +847,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/MyActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/menu/menu_post_details.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1215">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16014235" vertical-offset="0" max-vertical-offset="562">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/app/AppLysterr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16014235" vertical-offset="0" max-vertical-offset="562">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java">
+    <entry file="file://$PROJECT_DIR$/res/menu/menu_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74358976" vertical-offset="0" max-vertical-offset="675">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/fragment_post_details.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.666666" vertical-offset="0" max-vertical-offset="825">
+          <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/util/Registry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/data/ParsePostField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42704627" vertical-offset="0" max-vertical-offset="562">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/data/ParseClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08007117" vertical-offset="0" max-vertical-offset="562">
+          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/util/UiUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.613879" vertical-offset="0" max-vertical-offset="562">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="10" column="100" selection-start-line="10" selection-start-column="100" selection-end-line="10" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/interfaces/PostListDelegate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16014235" vertical-offset="0" max-vertical-offset="562">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/MyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1440">
+          <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#2524#2525#0" expanded="true" />
+            <element signature="e#2563#2564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostDetailsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
+          <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+          <folding>
+            <element signature="e#1254#1255#0" expanded="true" />
+            <element signature="e#1304#1305#0" expanded="true" />
+            <element signature="e#1973#2411#0" expanded="true" />
+            <element signature="e#2335#2367#0" expanded="true" />
+            <element signature="e#2400#2401#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71794873" vertical-offset="0" max-vertical-offset="840">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
           </folding>
         </state>
       </provider>
