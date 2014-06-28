@@ -13,6 +13,4 @@ public enum ParsePostField {
     price,
     text,
     type,
-    createdAt,
-    updatedAt,
 }

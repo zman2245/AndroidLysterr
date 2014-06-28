@@ -9,4 +9,5 @@
 
     <!-- error messages -->
     <string name="error_post_details_load">Failed to load post details, please go back and try again</string>
+    <string name="error_post_image_load">Failed to load image, sorry about that</string>
 </resources>
