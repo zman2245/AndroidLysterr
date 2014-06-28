@@ -1,11 +1,13 @@
 package com.lysterr.Lysterr;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.lysterr.Lysterr.fragments.PostListFragment;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
@@ -27,6 +29,8 @@ public class MyActivity extends Activity {
 
         if (!isLoggedIn()) {
             showLogin();
+        } else {
+            showPostList();
         }
     }
 
@@ -60,5 +64,12 @@ public class MyActivity extends Activity {
     private void showLogin() {
         ParseLoginBuilder builder = new ParseLoginBuilder(MyActivity.this);
         startActivityForResult(builder.build(), 0);
+    }
+
+    private void showPostList() {
+        PostListFragment f = PostListFragment.newInstance();
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, f, "post-fragment")
+                .commit();
     }
 }
