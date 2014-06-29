@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="intro_words">
+        <item>Beautiful</item>
+        <item>Stunning</item>
+        <item>Lovely</item>
+    </string-array>
+
+    <string-array name="excellent_words">
+        <item>Supreme</item>
+        <item>Cream Puff</item>
+        <item>Top Shelf</item>
+        <item>Exquisite</item>
+        <item>Debonair</item>
+        <item>High Class</item>
+        <item>First Class</item>
+        <item>Premium</item>
+        <item>Without Comparison</item>
+        <item>Flawless</item>
+        <item>Awe Inspiring</item>
+        <item>Superior</item>
+        <item>Tip-Top</item>
+        <item>Exceptional</item>
+    </string-array>
+
+    <string-array name="good_words">
+        <item>Supple</item>
+        <item>Lovely</item>
+        <item>Aesthetically Pleasing</item>
+        <item>Endearing</item>
+        <item>Fantastic</item>
+        <item>Marvelous</item>
+        <item>Splendid</item>
+        <item>Deluxe</item>
+        <item>Nice</item>
+        <item>Satisfying</item>
+    </string-array>
+
+    <string-array name="average_words">
+        <item>Well Loved</item>
+        <item>Slightly Worn</item>
+        <item>Pleasant</item>
+        <item>Gnarly</item>
+        <item>Rad</item>
+        <item>Ordinary</item>
+        <item>Standard</item>
+        <item>General</item>
+        <item>Fair</item>
+        <item>Regular</item>
+        <item>Mainstream</item>
+    </string-array>
+
+    <string name="desc_generic_no_location_format">%1$s, %2$s, %3$s, only %4$.2f, %5$s, %6$s, %7$s</string>
+    <string name="desc_generic_with_location_format">%1$s, %2$s, %3$s, only %4$.2f, %5$s, %6$s, %7$s, %7$s</string>
+</resources>

@@ -20,4 +20,7 @@
     <string name="new_post_details_price">Price</string>
     <string name="new_post_details_custom">Custom (optional)</string>
     <string name="new_post_details_next">Next</string>
+    <string name="new_post_conditions_excellent">Excellent</string>
+    <string name="new_post_conditions_good">Good</string>
+    <string name="new_post_conditions_average">Average</string>
 </resources>

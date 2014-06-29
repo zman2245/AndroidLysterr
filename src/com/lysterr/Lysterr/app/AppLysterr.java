@@ -1,6 +1,7 @@
 package com.lysterr.Lysterr.app;
 
 import android.app.Application;
+import com.lysterr.Lysterr.fragments.postflow.NewPostDescriptionModel;
 import com.lysterr.Lysterr.util.Registry;
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
@@ -12,6 +13,8 @@ public class AppLysterr extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        NewPostDescriptionModel.init(getResources());
 
         Registry.sApp = this;
 
