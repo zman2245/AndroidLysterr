@@ -38,6 +38,7 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d("LYSTERR", "res code: " + resultCode);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

@@ -12,6 +12,12 @@
     <!-- error messages -->
     <string name="error_post_details_load">Failed to load post details, please go back and try again</string>
     <string name="error_post_image_load">Failed to load image, sorry about that</string>
+    <string name="error_invalid_price">Please provide a valid price</string>
 
     <string name="get_post_image_button">Capture photo of the item</string>
+    <string name="new_post_details_instructions">Please tell us something about the object</string>
+    <string name="new_post_details_name">Name</string>
+    <string name="new_post_details_price">Price</string>
+    <string name="new_post_details_custom">Custom (optional)</string>
+    <string name="new_post_details_next">Next</string>
 </resources>

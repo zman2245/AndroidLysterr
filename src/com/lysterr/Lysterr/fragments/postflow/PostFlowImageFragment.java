@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.util.DebugUtil;
+import com.lysterr.Lysterr.util.UiUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,9 +29,9 @@ public class PostFlowImageFragment extends Fragment {
 
     private String mCurrentPhotoPath;
 
-    public static PostFlowImageFragment newInstance() {
+    public static PostFlowImageFragment newInstance(NewPostData data) {
         PostFlowImageFragment f = new PostFlowImageFragment();
-
+        PostFlowNavFragment.putDataInFrag(f, data);
         return f;
     }
 
@@ -51,14 +52,20 @@ public class PostFlowImageFragment extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent dataIntent) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            Bundle extras = data.getExtras();
-            // this is only a thumbnail, the full image was written to the file we gave in the intent
-            // the path should be stored in mCurrentPhotoPath and should be passed along
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+//            Bundle extras = dataIntent.getExtras();
+//            // this is only a thumbnail, the full image was written to the file we gave in the intent
+//            // the path should be stored in mCurrentPhotoPath and should be passed along
+//            Bitmap imageBitmap = (Bitmap) extras.get("data");
 
+            NewPostData data = (NewPostData)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
+            // TODO: validate file exists and has non-zero length?
+            data.pathToBitmap = mCurrentPhotoPath;
+            PostFlowNavFragment.notifyStepComplete(this, data);
+        } else {
+            UiUtil.showToast(R.string.error_post_image_load);
         }
     }
 
@@ -78,7 +85,7 @@ public class PostFlowImageFragment extends Fragment {
             if (photoFile != null) {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                         Uri.fromFile(photoFile));
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                getParentFragment().startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
     }
