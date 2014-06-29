@@ -49,7 +49,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_post_nav, container, false);
+        View view = inflater.inflate(R.layout.fragment_new_post_nav, container, false);
 
         mFragmentContainer = view.findViewById(R.id.fragment_container);
         gotoFirstStep();

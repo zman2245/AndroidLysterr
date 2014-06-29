@@ -2,7 +2,6 @@ package com.lysterr.Lysterr.fragments.postflow;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -37,7 +36,7 @@ public class PostFlowImageFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_post_image, container, false);
+        View view = inflater.inflate(R.layout.fragment_new_post_image, container, false);
 
         Button button = (Button)view.findViewById(R.id.image_button);
         button.setOnClickListener(new View.OnClickListener() {
