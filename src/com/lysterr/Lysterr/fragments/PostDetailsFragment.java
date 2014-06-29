@@ -1,16 +1,14 @@
 package com.lysterr.Lysterr.fragments;
 
-import android.app.Fragment;
-import android.app.ListFragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.lysterr.Lysterr.R;
@@ -21,15 +19,12 @@ import com.lysterr.Lysterr.util.DebugUtil;
 import com.lysterr.Lysterr.util.UiUtil;
 import com.parse.GetCallback;
 import com.parse.GetDataCallback;
-import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.parse.ProgressCallback;
-import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

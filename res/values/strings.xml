@@ -4,10 +4,14 @@
 
     <!-- menu -->
     <string name="menu_post">Post</string>
+    <string name="menu_post_car">Car</string>
+    <string name="menu_post_generic_item">Generic Item</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_chat">Chat</string>
 
     <!-- error messages -->
     <string name="error_post_details_load">Failed to load post details, please go back and try again</string>
     <string name="error_post_image_load">Failed to load image, sorry about that</string>
+
+    <string name="get_post_image_button">Capture photo of the item</string>
 </resources>
