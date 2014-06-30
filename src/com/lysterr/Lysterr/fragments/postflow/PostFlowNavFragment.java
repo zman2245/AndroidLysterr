@@ -78,7 +78,8 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster {
             f = PostFlowDetailsFragment.newInstance(mNewPostData);
             gotoStep(f);
         } else if (fragment instanceof PostFlowDetailsFragment) {
-            // TODO
+            f = PostFlowConditionsFragment.newInstance(mNewPostData);
+            gotoStep(f);
         }
     }
 

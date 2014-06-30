@@ -11,7 +11,9 @@ import java.io.Serializable;
 public class NewPostData implements Serializable {
     public String name;
     public double price;
-    public String customDescription;
+    public String custom;
     public NewPostCondition condition;
     public String pathToBitmap;
+
+    public String selectedDescription;
 }
