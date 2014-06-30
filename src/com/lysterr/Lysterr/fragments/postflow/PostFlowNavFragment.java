@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.lysterr.Lysterr.R;
+import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowConditionsFragment;
+import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowDetailsFragment;
+import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowImageFragment;
 
 import java.io.Serializable;
 
