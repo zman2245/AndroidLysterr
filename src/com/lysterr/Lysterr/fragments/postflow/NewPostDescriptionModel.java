@@ -38,6 +38,7 @@ public class NewPostDescriptionModel {
         String intro = getRandomIntro();
         String desc1 = getRandomDescriptorForCondition(cond);
         String desc2 = null;
+        String priceText = String.format("$%.2f", price);
 
         // naive way to avoid duplicate descriptors
         while (!desc1.equals(desc2)) {
@@ -51,7 +52,7 @@ public class NewPostDescriptionModel {
                 .append(", ")
                 .append(desc1)
                 .append(", only ")
-                .append(price)
+                .append(priceText)
                 .append(", ")
                 .append(cond.toString())
                 .append(" condition, ");

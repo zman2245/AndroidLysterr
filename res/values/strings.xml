@@ -23,4 +23,5 @@
     <string name="new_post_conditions_excellent">Excellent</string>
     <string name="new_post_conditions_good">Good</string>
     <string name="new_post_conditions_average">Average</string>
+    <string name="new_post_approve">Approve</string>
 </resources>

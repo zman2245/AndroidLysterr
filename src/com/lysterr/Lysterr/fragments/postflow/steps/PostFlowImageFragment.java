@@ -108,7 +108,8 @@ public class PostFlowImageFragment extends Fragment {
         );
 
         // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        mCurrentPhotoPath = image.getAbsolutePath(); // "file:" + image.getAbsolutePath();
+
         return image;
     }
 }

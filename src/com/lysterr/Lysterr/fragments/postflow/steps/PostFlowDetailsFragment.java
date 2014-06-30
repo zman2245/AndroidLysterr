@@ -48,6 +48,7 @@ public class PostFlowDetailsFragment extends Fragment implements TextWatcher {
                 NewPostData data = (NewPostData)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
                 data.name = mName.getText().toString();
                 data.price = Double.valueOf(mPrice.getText().toString());
+                data.custom = mCustom.getText().toString();
 
                 if (data.price <= 0) {
                     UiUtil.showToast(R.string.error_invalid_price);

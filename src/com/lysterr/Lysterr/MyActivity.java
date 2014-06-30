@@ -2,6 +2,7 @@ package com.lysterr.Lysterr;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -9,12 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import com.lysterr.Lysterr.fragments.PostDetailsFragment;
 import com.lysterr.Lysterr.fragments.PostListFragment;
+import com.lysterr.Lysterr.fragments.interfaces.BackPressListener;
 import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
+import com.lysterr.Lysterr.fragments.interfaces.PostNewListener;
 import com.lysterr.Lysterr.fragments.postflow.PostFlowNavFragment;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
-public class MyActivity extends FragmentActivity implements PostListDelegate {
+public class MyActivity extends FragmentActivity implements PostListDelegate, PostNewListener {
     /**
      * Called when the activity is first created.
      */
@@ -33,6 +36,8 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
         } else {
             showPostList();
         }
+
+        updateHomeButtonState();
     }
 
     @Override
@@ -71,6 +76,27 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        boolean consume = false;
+
+        // handle case where a modal exists
+        Fragment f = getSupportFragmentManager().findFragmentByTag("modal-fragment");
+        if (f != null && f instanceof BackPressListener) {
+            consume = ((BackPressListener)f).onBackPressed();
+
+            if (!consume) {
+                // modal fragment did not consume the event; only thing left to do is dismiss the modal!
+                getSupportFragmentManager().beginTransaction().remove(f).commit();
+                updateHomeButtonState();
+            }
+
+            return;
+        }
+
+        super.onBackPressed();
+    }
+
     private boolean isLoggedIn() {
         return ParseUser.getCurrentUser() != null && ParseUser.getCurrentUser().isAuthenticated();
     }
@@ -101,9 +127,7 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
                 .replace(R.id.fragment_modal_container, f, "modal-fragment")
                 .commit();
 
-        // show home as up
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        updateHomeButtonState();
     }
 
     private void handleHomeButtonTap() {
@@ -112,14 +136,42 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
             getSupportFragmentManager().beginTransaction()
                     .remove(f)
                     .commit();
-            // no longer show home as up
-            getActionBar().setHomeButtonEnabled(false);
-            getActionBar().setDisplayHomeAsUpEnabled(false);
+
+            updateHomeButtonState();
         }
+    }
+
+    private void updateHomeButtonState() {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                if (getSupportFragmentManager().findFragmentByTag("modal-fragment") != null) {
+                    // show home as up
+                    getActionBar().setHomeButtonEnabled(true);
+                    getActionBar().setDisplayHomeAsUpEnabled(true);
+                } else {
+                    // no longer show home as up
+                    getActionBar().setHomeButtonEnabled(false);
+                    getActionBar().setDisplayHomeAsUpEnabled(false);
+                }
+            }
+        });
     }
 
     @Override
     public void onPostSelected(String postId) {
         showPostDetails(postId);
+    }
+
+    @Override
+    public void onPostComplete() {
+        Fragment f = getSupportFragmentManager().findFragmentByTag("modal-fragment");
+        if (f != null) {
+            getSupportFragmentManager().beginTransaction()
+                    .remove(f)
+                    .commit();
+
+            updateHomeButtonState();
+        }
     }
 }

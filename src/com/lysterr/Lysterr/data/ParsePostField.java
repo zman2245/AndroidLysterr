@@ -5,7 +5,9 @@ package com.lysterr.Lysterr.data;
  */
 public enum ParsePostField {
     city,
+    condition,
     createdBy,
+    custom,
     imageFile,
     imageThumb,
     location,
