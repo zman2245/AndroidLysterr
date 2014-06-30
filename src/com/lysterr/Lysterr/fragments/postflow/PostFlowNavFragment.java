@@ -28,12 +28,18 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster {
 
         Bundle args = new Bundle();
         NewPostData data = new NewPostData();
-        args.putSerializable("data", data);
+        args.putSerializable(ARG_DATA, data);
         f.setArguments(args);
 
         return f;
     }
 
+    /**
+     * A helper for child fragments to use
+     *
+     * @param f
+     * @param data
+     */
     public static void putDataInFrag(Fragment f, Serializable data) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_DATA, data);
@@ -44,6 +50,8 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setRetainInstance(true);
+
         mNewPostData = new NewPostData();
     }
 
@@ -52,7 +60,11 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster {
         View view = inflater.inflate(R.layout.fragment_new_post_nav, container, false);
 
         mFragmentContainer = view.findViewById(R.id.fragment_container);
-        gotoFirstStep();
+
+        if (getChildFragmentManager().findFragmentByTag("step") == null) {
+            // only go to first step if there isn't already a step
+            gotoFirstStep();
+        }
 
         return view;
     }

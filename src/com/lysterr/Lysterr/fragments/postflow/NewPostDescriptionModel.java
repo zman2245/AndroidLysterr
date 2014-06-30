@@ -8,8 +8,8 @@ import com.lysterr.Lysterr.R;
  * Encapsulates business logic for generating the text for
  * new posts
  *
- * Note: this will not work well for internationalization. Probably best way to do this
- * would be to use string array resources.
+ * Note: there are some issues here with regards to localization (text hard-coded) but
+ * who cares for now.
  */
 public class NewPostDescriptionModel {
     private static String[] sIntroWords;

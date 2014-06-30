@@ -59,6 +59,11 @@ public class PostFlowDetailsFragment extends Fragment implements TextWatcher {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+    }
+
+    @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
         mNext.setEnabled(
                 !TextUtils.isEmpty(mName.getText()) &&
