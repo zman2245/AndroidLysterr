@@ -13,6 +13,7 @@ import com.lysterr.Lysterr.fragments.PostListFragment;
 import com.lysterr.Lysterr.fragments.interfaces.BackPressListener;
 import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
 import com.lysterr.Lysterr.fragments.interfaces.PostNewListener;
+import com.lysterr.Lysterr.fragments.postflow.NewPostType;
 import com.lysterr.Lysterr.fragments.postflow.PostFlowNavFragment;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
@@ -55,6 +56,8 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        PostFlowNavFragment f;
+
         switch (item.getItemId()) {
             case R.id.menu_item_logout:
                 ParseUser.logOut();
@@ -62,8 +65,12 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
                 return true;
 
             case R.id.menu_item_post_generic:
+                f = PostFlowNavFragment.newInstance(NewPostType.Generic);
+                showFragmentAsModal(f);
+                return true;
+
             case R.id.menu_item_post_car:
-                PostFlowNavFragment f = PostFlowNavFragment.newInstance();
+                f = PostFlowNavFragment.newInstance(NewPostType.Car);
                 showFragmentAsModal(f);
                 return true;
 

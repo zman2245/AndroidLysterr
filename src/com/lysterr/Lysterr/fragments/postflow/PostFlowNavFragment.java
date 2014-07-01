@@ -43,11 +43,12 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
 
     private View mFragmentContainer;
 
-    public static PostFlowNavFragment newInstance() {
+    public static PostFlowNavFragment newInstance(NewPostType type) {
         PostFlowNavFragment f = new PostFlowNavFragment();
 
         Bundle args = new Bundle();
         NewPostData data = new NewPostData();
+        data.type = type;
         args.putSerializable(ARG_DATA, data);
         f.setArguments(args);
 
@@ -72,7 +73,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
 
         setRetainInstance(true);
 
-        mNewPostData = new NewPostData();
+        mNewPostData = (NewPostData)getArguments().getSerializable(ARG_DATA);
     }
 
     @Override
@@ -116,7 +117,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
         }
     }
 
-    // TODO background threading
+    // TODO background threading of the image file read
     private void postToServer(final NewPostData data) {
         byte[] imageBytes;
 
@@ -132,6 +133,8 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
                 if (e == null) {
                     ParseObject post = new ParseObject("Post");
                     post.put(ParsePostField.createdBy.toString(), ParseUser.getCurrentUser());
+                    post.put(ParsePostField.type.toString(), data.type.val);
+                    post.put(ParsePostField.condition.toString(), data.condition.val);
                     post.put(ParsePostField.text.toString(), data.selectedDescription);
                     post.put(ParsePostField.name.toString(), data.name);
                     post.put(ParsePostField.price.toString(), data.price);

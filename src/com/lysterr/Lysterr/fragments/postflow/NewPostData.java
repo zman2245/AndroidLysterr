@@ -9,6 +9,7 @@ import java.io.Serializable;
  * between fragments
  */
 public class NewPostData implements Serializable {
+    public NewPostType type;
     public String name;
     public double price;
     public String custom;
