@@ -50,7 +50,7 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
 
         if (!isLoggedIn()) {
             showLogin();
-        } else {
+        } else if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) == null) {
             showPostList();
         }
 
