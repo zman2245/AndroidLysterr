@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr.fragments.postflow.steps;
+package com.lysterr.Lysterr.postflow.steps;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import com.lysterr.Lysterr.R;
-import com.lysterr.Lysterr.fragments.postflow.NewPostData;
-import com.lysterr.Lysterr.fragments.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.postflow.NewPostData;
+import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 import com.lysterr.Lysterr.util.DebugUtil;
 import com.lysterr.Lysterr.util.UiUtil;
 

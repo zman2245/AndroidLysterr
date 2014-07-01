@@ -24,4 +24,6 @@
     <string name="new_post_conditions_good">Good</string>
     <string name="new_post_conditions_average">Average</string>
     <string name="new_post_approve">Approve</string>
+
+    <string name="format_poster_line">Posted by %1$s</string>
 </resources>

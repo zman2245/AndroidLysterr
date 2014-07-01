@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr.fragments.postflow;
+package com.lysterr.Lysterr.postflow;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,17 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.data.ParsePostField;
-import com.lysterr.Lysterr.data.ParseUserField;
 import com.lysterr.Lysterr.fragments.interfaces.BackPressListener;
 import com.lysterr.Lysterr.fragments.interfaces.PostNewListener;
-import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowConditionsFragment;
-import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowConfirmFragment;
-import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowDetailsFragment;
-import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowImageFragment;
+import com.lysterr.Lysterr.postflow.steps.PostFlowConditionsFragment;
+import com.lysterr.Lysterr.postflow.steps.PostFlowConfirmFragment;
+import com.lysterr.Lysterr.postflow.steps.PostFlowDetailsFragment;
+import com.lysterr.Lysterr.postflow.steps.PostFlowImageFragment;
 import com.lysterr.Lysterr.util.DebugUtil;
 import com.lysterr.Lysterr.util.Registry;
 import com.lysterr.Lysterr.util.UiUtil;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import com.lysterr.Lysterr.R;
+import com.lysterr.Lysterr.adapters.PostListAdapter;
 import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
@@ -31,9 +32,7 @@ public class PostListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mAdapter = new ParseQueryAdapter<ParseObject>(getActivity(), "Post");
-        mAdapter.setTextKey("text");
-        mAdapter.setImageKey("imageThumb");
+        mAdapter = new PostListAdapter(getActivity());
 
         setHasOptionsMenu(true);
     }

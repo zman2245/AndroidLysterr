@@ -1,7 +1,7 @@
 package com.lysterr.Lysterr.app;
 
 import android.app.Application;
-import com.lysterr.Lysterr.fragments.postflow.NewPostDescriptionModel;
+import com.lysterr.Lysterr.postflow.NewPostDescriptionModel;
 import com.lysterr.Lysterr.globals.LocationProvider;
 import com.lysterr.Lysterr.util.Registry;
 import com.parse.Parse;

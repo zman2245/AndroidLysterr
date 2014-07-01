@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr;
+package com.lysterr.Lysterr.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +8,14 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.fragments.PostDetailsFragment;
 import com.lysterr.Lysterr.fragments.PostListFragment;
 import com.lysterr.Lysterr.fragments.interfaces.BackPressListener;
 import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
 import com.lysterr.Lysterr.fragments.interfaces.PostNewListener;
-import com.lysterr.Lysterr.fragments.postflow.NewPostType;
-import com.lysterr.Lysterr.fragments.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.postflow.NewPostType;
+import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 import com.lysterr.Lysterr.util.Registry;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;

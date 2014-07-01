@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr.fragments.postflow.steps;
+package com.lysterr.Lysterr.postflow.steps;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,17 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import com.lysterr.Lysterr.R;
-import com.lysterr.Lysterr.fragments.postflow.NewPostCondition;
-import com.lysterr.Lysterr.fragments.postflow.NewPostData;
-import com.lysterr.Lysterr.fragments.postflow.NewPostDescriptionModel;
-import com.lysterr.Lysterr.fragments.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.postflow.NewPostCondition;
+import com.lysterr.Lysterr.postflow.NewPostData;
+import com.lysterr.Lysterr.postflow.NewPostDescriptionModel;
+import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 
 /**
  * Input for a new post's condition

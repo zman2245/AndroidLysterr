@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr.fragments.postflow;
+package com.lysterr.Lysterr.postflow;
 
 public enum NewPostType {
     Generic(0), Car(1);

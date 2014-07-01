@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr.fragments.postflow.steps;
+package com.lysterr.Lysterr.postflow.steps;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import com.lysterr.Lysterr.R;
-import com.lysterr.Lysterr.fragments.postflow.NewPostCondition;
-import com.lysterr.Lysterr.fragments.postflow.NewPostData;
-import com.lysterr.Lysterr.fragments.postflow.NewPostDescriptionModel;
-import com.lysterr.Lysterr.fragments.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.postflow.NewPostCondition;
+import com.lysterr.Lysterr.postflow.NewPostData;
+import com.lysterr.Lysterr.postflow.NewPostDescriptionModel;
+import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 
 /**
  * Input for a new post's condition

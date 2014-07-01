@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr.fragments.postflow;
+package com.lysterr.Lysterr.postflow;
 
 import android.content.res.Resources;
 import android.text.TextUtils;

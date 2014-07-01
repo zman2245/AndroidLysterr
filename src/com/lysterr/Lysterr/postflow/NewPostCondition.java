@@ -1,4 +1,4 @@
-package com.lysterr.Lysterr.fragments.postflow;
+package com.lysterr.Lysterr.postflow;
 
 public enum NewPostCondition {
     Excellent(0), Good(1), Average(2);
