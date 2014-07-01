@@ -24,6 +24,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:hint="@string/new_post_details_name"
+            android:inputType="textCapWords"
             android:textSize="20sp"/>
 
         <EditText

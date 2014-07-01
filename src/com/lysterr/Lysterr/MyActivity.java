@@ -15,6 +15,7 @@ import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
 import com.lysterr.Lysterr.fragments.interfaces.PostNewListener;
 import com.lysterr.Lysterr.fragments.postflow.NewPostType;
 import com.lysterr.Lysterr.fragments.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.util.Registry;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
@@ -26,6 +27,20 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Registry.sLocation.startChecking(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStart();
+
+        Registry.sLocation.stopChecking(this);
     }
 
     @Override

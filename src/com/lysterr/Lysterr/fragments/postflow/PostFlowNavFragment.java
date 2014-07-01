@@ -19,10 +19,12 @@ import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowConfirmFragment;
 import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowDetailsFragment;
 import com.lysterr.Lysterr.fragments.postflow.steps.PostFlowImageFragment;
 import com.lysterr.Lysterr.util.DebugUtil;
+import com.lysterr.Lysterr.util.Registry;
 import com.lysterr.Lysterr.util.UiUtil;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -139,6 +141,8 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
                     post.put(ParsePostField.name.toString(), data.name);
                     post.put(ParsePostField.price.toString(), data.price);
 
+                    fillPostWithLocationIfAvailable(post);
+
                     if (!TextUtils.isEmpty(data.custom)) {
                         post.put(ParsePostField.custom.toString(), data.custom);
                     }
@@ -151,6 +155,13 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
                 }
             }
         });
+    }
+
+    private void fillPostWithLocationIfAvailable(ParseObject post) {
+        if (Registry.sLocation.hasValidLocation()) {
+            ParseGeoPoint point = new ParseGeoPoint(Registry.sLocation.getLatitude(), Registry.sLocation.getLongitude());
+            post.put(ParsePostField.location.toString(), point);
+        }
     }
 
     @Override
