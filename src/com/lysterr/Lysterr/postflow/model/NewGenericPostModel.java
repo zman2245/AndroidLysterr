@@ -109,4 +109,29 @@ public class NewGenericPostModel implements NewPostModel {
             }
         });
     }
+
+    @Override
+    public String getImagePath() {
+        return pathToBitmap;
+    }
+
+    @Override
+    public String getSelectedDescription() {
+        return selectedDescription;
+    }
+
+    @Override
+    public void setImagePath(String path) {
+        pathToBitmap = path;
+    }
+
+    @Override
+    public void setSelectedDescription(String desc) {
+        selectedDescription = desc;
+    }
+
+    @Override
+    public void setConditino(NewPostCondition cond) {
+        condition = cond;
+    }
 }

@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
 import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.postflow.model.NewPostModel;
 import com.lysterr.Lysterr.util.DebugUtil;
 import com.lysterr.Lysterr.util.UiUtil;
 
@@ -30,7 +31,7 @@ public class PostFlowImageFragment extends Fragment {
 
     private String mCurrentPhotoPath;
 
-    public static PostFlowImageFragment newInstance(NewGenericPostModel data) {
+    public static PostFlowImageFragment newInstance(NewPostModel data) {
         PostFlowImageFragment f = new PostFlowImageFragment();
         PostFlowNavFragment.putDataInFrag(f, data);
         return f;
@@ -60,10 +61,10 @@ public class PostFlowImageFragment extends Fragment {
 //            // the path should be stored in mCurrentPhotoPath and should be passed along
 //            Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-            NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
+            NewPostModel data = (NewPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
             // TODO: validate file exists and has non-zero length?
-            data.pathToBitmap = mCurrentPhotoPath;
+            data.setImagePath(mCurrentPhotoPath);
             PostFlowNavFragment.notifyStepComplete(this, data);
         } else {
             UiUtil.showToast(R.string.error_post_image_load);

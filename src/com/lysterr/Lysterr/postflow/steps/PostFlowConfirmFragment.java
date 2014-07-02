@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
 import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.postflow.model.NewPostModel;
 
 /**
  * Input for a new post's condition
@@ -22,7 +23,7 @@ public class PostFlowConfirmFragment extends Fragment {
     private TextView mDescription;
     private Button mApprove;
 
-    public static PostFlowConfirmFragment newInstance(NewGenericPostModel data) {
+    public static PostFlowConfirmFragment newInstance(NewPostModel data) {
         PostFlowConfirmFragment f = new PostFlowConfirmFragment();
         PostFlowNavFragment.putDataInFrag(f, data);
         return f;
@@ -36,10 +37,10 @@ public class PostFlowConfirmFragment extends Fragment {
         mDescription = (TextView)v.findViewById(R.id.description);
         mApprove = (Button)v.findViewById(R.id.approve);
 
-        final NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
+        final NewPostModel data = (NewPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
-        mDescription.setText(data.selectedDescription);
-        loadImage(data.pathToBitmap);
+        mDescription.setText(data.getSelectedDescription());
+        loadImage(data.getImagePath());
 
         mApprove.setOnClickListener(new View.OnClickListener() {
             @Override

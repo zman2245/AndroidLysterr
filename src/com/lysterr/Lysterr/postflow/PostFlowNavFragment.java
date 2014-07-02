@@ -5,32 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.lysterr.Lysterr.R;
-import com.lysterr.Lysterr.data.ParsePostField;
 import com.lysterr.Lysterr.fragments.interfaces.BackPressListener;
 import com.lysterr.Lysterr.fragments.interfaces.PostNewListener;
+import com.lysterr.Lysterr.postflow.model.NewCarPostModel;
 import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
+import com.lysterr.Lysterr.postflow.model.NewPostModel;
+import com.lysterr.Lysterr.postflow.steps.PostFlowCarDetailsFragment;
+import com.lysterr.Lysterr.postflow.steps.PostFlowCarOptionsFragment;
 import com.lysterr.Lysterr.postflow.steps.PostFlowConditionsFragment;
 import com.lysterr.Lysterr.postflow.steps.PostFlowConfirmFragment;
 import com.lysterr.Lysterr.postflow.steps.PostFlowDetailsFragment;
 import com.lysterr.Lysterr.postflow.steps.PostFlowImageFragment;
-import com.lysterr.Lysterr.util.DebugUtil;
 import com.lysterr.Lysterr.util.Registry;
 import com.lysterr.Lysterr.util.UiUtil;
-import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseObject;
-import com.parse.ParseUser;
-import com.parse.SaveCallback;
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -39,7 +31,7 @@ import java.io.Serializable;
 public class PostFlowNavFragment extends Fragment implements PostFlowMaster, BackPressListener {
     public static final String ARG_DATA = "data";
 
-    private NewGenericPostModel mNewPostData;
+    private NewPostModel mNewPostData;
     private int mCurrentStep = 0;
 
     private View mFragmentContainer;
@@ -48,8 +40,14 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
         PostFlowNavFragment f = new PostFlowNavFragment();
 
         Bundle args = new Bundle();
-        NewGenericPostModel data = new NewGenericPostModel();
-        data.type = type;
+        NewPostModel data;
+        if (type == NewPostType.Car) {
+            data = new NewCarPostModel();
+            ((NewCarPostModel)data).type = type;
+        } else {
+            data = new NewGenericPostModel();
+            ((NewGenericPostModel)data).type = type;
+        }
         args.putSerializable(ARG_DATA, data);
         f.setArguments(args);
 
@@ -74,7 +72,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
 
         setRetainInstance(true);
 
-        mNewPostData = (NewGenericPostModel)getArguments().getSerializable(ARG_DATA);
+        mNewPostData = (NewPostModel)getArguments().getSerializable(ARG_DATA);
     }
 
     @Override
@@ -96,16 +94,28 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
     }
 
     @Override
-    public void stepCompleted(Fragment fragment, NewGenericPostModel data) {
+    public void stepCompleted(Fragment fragment, NewPostModel data) {
         Fragment f;
 
         UiUtil.hideKeyboard(getActivity());
 
         // could put this behind a factory or some other navigation controller object
+        // there's gotta be a better way
         if (fragment instanceof PostFlowImageFragment) {
-            f = PostFlowDetailsFragment.newInstance(mNewPostData);
+            if (data instanceof NewCarPostModel) {
+                f = PostFlowCarDetailsFragment.newInstance((NewCarPostModel) mNewPostData);
+                gotoStep(f);
+            } else {
+                f = PostFlowDetailsFragment.newInstance((NewGenericPostModel) mNewPostData);
+                gotoStep(f);
+            }
+        } else if (fragment instanceof PostFlowCarDetailsFragment) {
+            f = PostFlowCarOptionsFragment.newInstance((NewCarPostModel)mNewPostData);
             gotoStep(f);
         } else if (fragment instanceof PostFlowDetailsFragment) {
+            f = PostFlowConditionsFragment.newInstance(mNewPostData);
+            gotoStep(f);
+        } else if (fragment instanceof PostFlowCarOptionsFragment) {
             f = PostFlowConditionsFragment.newInstance(mNewPostData);
             gotoStep(f);
         } else if (fragment instanceof PostFlowConditionsFragment) {
@@ -118,7 +128,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
         }
     }
 
-    private void postToServer(final NewGenericPostModel data) {
+    private void postToServer(final NewPostModel data) {
         ParseGeoPoint point = getLocationIfAvailable();
         data.saveToServer(point);
     }
@@ -164,7 +174,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
         });
     }
 
-    public static void notifyStepComplete(Fragment f, NewGenericPostModel data) {
+    public static void notifyStepComplete(Fragment f, NewPostModel data) {
         PostFlowMaster master;
         Fragment parentFrag = f.getParentFragment();
         if (parentFrag != null) {

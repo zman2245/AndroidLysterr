@@ -9,9 +9,8 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.postflow.NewPostCondition;
-import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
-import com.lysterr.Lysterr.postflow.NewPostDescriptionModel;
 import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
+import com.lysterr.Lysterr.postflow.model.NewPostModel;
 
 /**
  * Input for a new post's condition
@@ -21,7 +20,7 @@ public class PostFlowConditionsFragment extends Fragment implements CompoundButt
     private RadioButton mGood;
     private RadioButton mAverage;
 
-    public static PostFlowConditionsFragment newInstance(NewGenericPostModel data) {
+    public static PostFlowConditionsFragment newInstance(NewPostModel data) {
         PostFlowConditionsFragment f = new PostFlowConditionsFragment();
         PostFlowNavFragment.putDataInFrag(f, data);
         return f;
@@ -45,7 +44,7 @@ public class PostFlowConditionsFragment extends Fragment implements CompoundButt
     }
 
     private void fillDescriptions() {
-        NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
+        NewPostModel data = (NewPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
         mExcellent.setText(data.getDescriptionForCondition(NewPostCondition.Excellent));
         mGood.setText(data.getDescriptionForCondition(NewPostCondition.Good));
@@ -63,17 +62,17 @@ public class PostFlowConditionsFragment extends Fragment implements CompoundButt
             return;
         }
 
-        NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
+        NewPostModel data = (NewPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
         if (buttonView == mExcellent) {
-            data.condition = NewPostCondition.Excellent;
+            data.setConditino(NewPostCondition.Excellent);
         } else if (buttonView == mGood) {
-            data.condition = NewPostCondition.Good;
+            data.setConditino(NewPostCondition.Good);
         } else {
-            data.condition = NewPostCondition.Average;
+            data.setConditino(NewPostCondition.Average);
         }
 
-        data.selectedDescription = buttonView.getText().toString();
+        data.setSelectedDescription(buttonView.getText().toString());
 
         PostFlowNavFragment.notifyStepComplete(this, data);
     }

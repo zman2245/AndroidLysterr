@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/new_post_car_details_instructions"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/year"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_car_year"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/color"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_car_color"
+            android:inputType="textCapWords"/>
+
+        <EditText
+            android:id="@+id/make"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_car_make"
+            android:inputType="textCapWords"/>
+
+        <EditText
+            android:id="@+id/model"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_car_model"
+            android:inputType="textCapWords"/>
+
+        <EditText
+            android:id="@+id/price"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_car_price"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/miles"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_car_miles"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/doors"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_car_doors"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/custom"
+            style="@style/NewPostEditText"
+            android:hint="@string/new_post_details_custom"/>
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/new_post_details_next"
+            android:enabled="false"/>
+    </LinearLayout>
+
+</ScrollView>
+
