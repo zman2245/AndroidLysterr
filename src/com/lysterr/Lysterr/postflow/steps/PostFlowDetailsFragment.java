@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import com.lysterr.Lysterr.R;
-import com.lysterr.Lysterr.postflow.NewPostData;
+import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
 import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 import com.lysterr.Lysterr.util.UiUtil;
 
@@ -24,7 +24,7 @@ public class PostFlowDetailsFragment extends Fragment implements TextWatcher {
     private EditText mCustom;
     private Button mNext;
 
-    public static PostFlowDetailsFragment newInstance(NewPostData data) {
+    public static PostFlowDetailsFragment newInstance(NewGenericPostModel data) {
         PostFlowDetailsFragment f = new PostFlowDetailsFragment();
         PostFlowNavFragment.putDataInFrag(f, data);
         return f;
@@ -45,7 +45,7 @@ public class PostFlowDetailsFragment extends Fragment implements TextWatcher {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewPostData data = (NewPostData)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
+                NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
                 data.name = mName.getText().toString();
                 data.price = Double.valueOf(mPrice.getText().toString());
                 data.custom = mCustom.getText().toString();

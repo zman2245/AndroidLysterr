@@ -11,9 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.lysterr.Lysterr.R;
-import com.lysterr.Lysterr.postflow.NewPostCondition;
-import com.lysterr.Lysterr.postflow.NewPostData;
-import com.lysterr.Lysterr.postflow.NewPostDescriptionModel;
+import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
 import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 
 /**
@@ -24,7 +22,7 @@ public class PostFlowConfirmFragment extends Fragment {
     private TextView mDescription;
     private Button mApprove;
 
-    public static PostFlowConfirmFragment newInstance(NewPostData data) {
+    public static PostFlowConfirmFragment newInstance(NewGenericPostModel data) {
         PostFlowConfirmFragment f = new PostFlowConfirmFragment();
         PostFlowNavFragment.putDataInFrag(f, data);
         return f;
@@ -38,7 +36,7 @@ public class PostFlowConfirmFragment extends Fragment {
         mDescription = (TextView)v.findViewById(R.id.description);
         mApprove = (Button)v.findViewById(R.id.approve);
 
-        final NewPostData data = (NewPostData)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
+        final NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
         mDescription.setText(data.selectedDescription);
         loadImage(data.pathToBitmap);

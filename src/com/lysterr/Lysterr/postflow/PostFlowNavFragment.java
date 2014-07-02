@@ -13,6 +13,7 @@ import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.data.ParsePostField;
 import com.lysterr.Lysterr.fragments.interfaces.BackPressListener;
 import com.lysterr.Lysterr.fragments.interfaces.PostNewListener;
+import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
 import com.lysterr.Lysterr.postflow.steps.PostFlowConditionsFragment;
 import com.lysterr.Lysterr.postflow.steps.PostFlowConfirmFragment;
 import com.lysterr.Lysterr.postflow.steps.PostFlowDetailsFragment;
@@ -38,7 +39,7 @@ import java.io.Serializable;
 public class PostFlowNavFragment extends Fragment implements PostFlowMaster, BackPressListener {
     public static final String ARG_DATA = "data";
 
-    private NewPostData mNewPostData;
+    private NewGenericPostModel mNewPostData;
     private int mCurrentStep = 0;
 
     private View mFragmentContainer;
@@ -47,7 +48,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
         PostFlowNavFragment f = new PostFlowNavFragment();
 
         Bundle args = new Bundle();
-        NewPostData data = new NewPostData();
+        NewGenericPostModel data = new NewGenericPostModel();
         data.type = type;
         args.putSerializable(ARG_DATA, data);
         f.setArguments(args);
@@ -73,7 +74,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
 
         setRetainInstance(true);
 
-        mNewPostData = (NewPostData)getArguments().getSerializable(ARG_DATA);
+        mNewPostData = (NewGenericPostModel)getArguments().getSerializable(ARG_DATA);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
     }
 
     @Override
-    public void stepCompleted(Fragment fragment, NewPostData data) {
+    public void stepCompleted(Fragment fragment, NewGenericPostModel data) {
         Fragment f;
 
         UiUtil.hideKeyboard(getActivity());
@@ -117,49 +118,20 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
         }
     }
 
-    // TODO background threading of the image file read
-    private void postToServer(final NewPostData data) {
-        byte[] imageBytes;
-
-        try {
-            imageBytes = FileUtils.readFileToByteArray(new File(data.pathToBitmap));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        final ParseFile image = new ParseFile("photo.jpg", imageBytes);
-        image.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    ParseObject post = new ParseObject("Post");
-                    post.put(ParsePostField.createdBy.toString(), ParseUser.getCurrentUser());
-                    post.put(ParsePostField.type.toString(), data.type.val);
-                    post.put(ParsePostField.condition.toString(), data.condition.val);
-                    post.put(ParsePostField.text.toString(), data.selectedDescription);
-                    post.put(ParsePostField.name.toString(), data.name);
-                    post.put(ParsePostField.price.toString(), data.price);
-
-                    fillPostWithLocationIfAvailable(post);
-
-                    if (!TextUtils.isEmpty(data.custom)) {
-                        post.put(ParsePostField.custom.toString(), data.custom);
-                    }
-
-                    post.put(ParsePostField.imageFile.toString(), image);
-
-                    post.saveInBackground();
-                } else {
-                    DebugUtil.debugException(e);
-                }
-            }
-        });
+    private void postToServer(final NewGenericPostModel data) {
+        ParseGeoPoint point = getLocationIfAvailable();
+        data.saveToServer(point);
     }
 
-    private void fillPostWithLocationIfAvailable(ParseObject post) {
+    // returns null if unavailable
+    private ParseGeoPoint getLocationIfAvailable() {
+        ParseGeoPoint point = null;
+
         if (Registry.sLocation.hasValidLocation()) {
-            ParseGeoPoint point = new ParseGeoPoint(Registry.sLocation.getLatitude(), Registry.sLocation.getLongitude());
-            post.put(ParsePostField.location.toString(), point);
+            point = new ParseGeoPoint(Registry.sLocation.getLatitude(), Registry.sLocation.getLongitude());
         }
+
+        return point;
     }
 
     @Override
@@ -192,7 +164,7 @@ public class PostFlowNavFragment extends Fragment implements PostFlowMaster, Bac
         });
     }
 
-    public static void notifyStepComplete(Fragment f, NewPostData data) {
+    public static void notifyStepComplete(Fragment f, NewGenericPostModel data) {
         PostFlowMaster master;
         Fragment parentFrag = f.getParentFragment();
         if (parentFrag != null) {

@@ -9,7 +9,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.postflow.NewPostCondition;
-import com.lysterr.Lysterr.postflow.NewPostData;
+import com.lysterr.Lysterr.postflow.model.NewGenericPostModel;
 import com.lysterr.Lysterr.postflow.NewPostDescriptionModel;
 import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 
@@ -21,7 +21,7 @@ public class PostFlowConditionsFragment extends Fragment implements CompoundButt
     private RadioButton mGood;
     private RadioButton mAverage;
 
-    public static PostFlowConditionsFragment newInstance(NewPostData data) {
+    public static PostFlowConditionsFragment newInstance(NewGenericPostModel data) {
         PostFlowConditionsFragment f = new PostFlowConditionsFragment();
         PostFlowNavFragment.putDataInFrag(f, data);
         return f;
@@ -45,12 +45,11 @@ public class PostFlowConditionsFragment extends Fragment implements CompoundButt
     }
 
     private void fillDescriptions() {
-        NewPostData data = (NewPostData)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
-        NewPostDescriptionModel model = new NewPostDescriptionModel();
+        NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
-        mExcellent.setText(model.getDescriptionForGenericItem(NewPostCondition.Excellent, data.name, data.price, data.custom));
-        mGood.setText(model.getDescriptionForGenericItem(NewPostCondition.Good, data.name, data.price, data.custom));
-        mAverage.setText(model.getDescriptionForGenericItem(NewPostCondition.Average, data.name, data.price, data.custom));
+        mExcellent.setText(data.getDescriptionForCondition(NewPostCondition.Excellent));
+        mGood.setText(data.getDescriptionForCondition(NewPostCondition.Good));
+        mAverage.setText(data.getDescriptionForCondition(NewPostCondition.Average));
     }
 
     @Override
@@ -64,7 +63,7 @@ public class PostFlowConditionsFragment extends Fragment implements CompoundButt
             return;
         }
 
-        NewPostData data = (NewPostData)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
+        NewGenericPostModel data = (NewGenericPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
 
         if (buttonView == mExcellent) {
             data.condition = NewPostCondition.Excellent;

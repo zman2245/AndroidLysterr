@@ -33,47 +33,11 @@ public class NewPostDescriptionModel {
         sGenericFormatWithLocation = r.getString(R.string.desc_generic_with_location_format);
     }
 
-    // TODO: add location support
-    public String getDescriptionForGenericItem(NewPostCondition cond, String name, double price, String custom) {
-        String intro = getRandomIntro();
-        String desc1 = getRandomDescriptorForCondition(cond);
-        String desc2 = null;
-        String priceText = String.format("$%.2f", price);
-
-        // naive way to avoid duplicate descriptors
-        while (!desc1.equals(desc2)) {
-            desc2 = getRandomDescriptorForCondition(cond);
-        }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(intro)
-                .append(", ")
-                .append(name)
-                .append(", ")
-                .append(desc1)
-                .append(", only ")
-                .append(priceText)
-                .append(", ")
-                .append(cond.toString())
-                .append(" condition, ");
-
-        if (!TextUtils.isEmpty(custom)) {
-            sb.append(custom).append(", ");
-        }
-
-        sb.append(desc2);
-
-        // TODO: if location
-
-
-        return sb.toString();
-    }
-
-    private String getRandomIntro() {
+    public static String getRandomIntro() {
         return getRandomString(sIntroWords);
     }
 
-    private String getRandomDescriptorForCondition(NewPostCondition cond) {
+    public static String getRandomDescriptorForCondition(NewPostCondition cond) {
         switch (cond) {
             case Average:
                 return getRandomString(sAverageWords);
@@ -86,7 +50,7 @@ public class NewPostDescriptionModel {
         }
     }
 
-    private String getRandomString(String[] strings) {
+    private static String getRandomString(String[] strings) {
         int index = (int)Math.floor(Math.random() * strings.length);
         return strings[index];
     }
