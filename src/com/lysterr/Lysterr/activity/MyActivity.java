@@ -65,7 +65,9 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        if (getSupportFragmentManager().findFragmentByTag("modal-fragment") == null) {
+            getMenuInflater().inflate(R.menu.menu_main, menu);
+        }
 
         return true;
     }
@@ -110,8 +112,7 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
 
             if (!consume) {
                 // modal fragment did not consume the event; only thing left to do is dismiss the modal!
-                getSupportFragmentManager().beginTransaction().remove(f).commit();
-                updateHomeButtonState();
+                removeModal();
             }
 
             return;
@@ -151,17 +152,11 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
                 .commit();
 
         updateHomeButtonState();
+        invalidateOptionsMenu();
     }
 
     private void handleHomeButtonTap() {
-        Fragment f = getSupportFragmentManager().findFragmentByTag("modal-fragment");
-        if (f != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .remove(f)
-                    .commit();
-
-            updateHomeButtonState();
-        }
+        removeModal();
     }
 
     private void updateHomeButtonState() {
@@ -181,13 +176,7 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
         });
     }
 
-    @Override
-    public void onPostSelected(String postId) {
-        showPostDetails(postId);
-    }
-
-    @Override
-    public void onPostComplete() {
+    private void removeModal() {
         Fragment f = getSupportFragmentManager().findFragmentByTag("modal-fragment");
         if (f != null) {
             getSupportFragmentManager().beginTransaction()
@@ -195,6 +184,17 @@ public class MyActivity extends FragmentActivity implements PostListDelegate, Po
                     .commit();
 
             updateHomeButtonState();
+            invalidateOptionsMenu();
         }
+    }
+
+    @Override
+    public void onPostSelected(String postId) {
+        showPostDetails(postId);
+    }
+
+    @Override
+    public void onPostComplete() {
+        removeModal();
     }
 }
