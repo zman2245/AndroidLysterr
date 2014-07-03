@@ -23,6 +23,7 @@ public class PostListAdapter extends ParseQueryAdapter<ParseObject> {
             public ParseQuery<ParseObject> create() {
                 ParseQuery query = new ParseQuery(ParseClass.Post.toString());
                 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_ELSE_NETWORK);
+                query.orderByDescending("updatedAt");
                 query.include(ParsePostField.createdBy.toString());
                 return query;
             }
@@ -50,7 +51,7 @@ public class PostListAdapter extends ParseQueryAdapter<ParseObject> {
             String name = user.getString(ParseUserField.fullName.toString());
 
             if (TextUtils.isEmpty(name)) {
-                name = user.getString(user.getUsername());
+                name = user.getUsername();
             }
             poster.setText(String.format(mPosterFormat, name));
         }
