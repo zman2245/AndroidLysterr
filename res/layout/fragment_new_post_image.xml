@@ -6,8 +6,7 @@
 
     <Button
         android:id="@+id/image_button"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
+        style="@style/PrimaryButton"
         android:text="@string/get_post_image_button"/>
 </RelativeLayout>
 

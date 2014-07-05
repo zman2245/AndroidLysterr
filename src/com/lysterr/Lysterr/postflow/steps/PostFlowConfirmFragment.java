@@ -16,7 +16,7 @@ import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 import com.lysterr.Lysterr.postflow.model.NewPostModel;
 
 /**
- * Input for a new post's condition
+ * Final page in post flow prompting the user to confirm
  */
 public class PostFlowConfirmFragment extends Fragment {
     private ImageView mImage;

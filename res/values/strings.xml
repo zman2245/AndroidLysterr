@@ -14,7 +14,7 @@
     <string name="error_post_image_load">Failed to load image, sorry about that</string>
     <string name="error_invalid_price">Please provide a valid price</string>
 
-    <string name="get_post_image_button">Capture photo of the item</string>
+    <string name="get_post_image_button">Capture item photo</string>
     <string name="new_post_details_instructions">Please tell us something about the object</string>
     <string name="new_post_car_details_instructions">Please tell us something about the car</string>
     <string name="new_post_details_name">Name</string>

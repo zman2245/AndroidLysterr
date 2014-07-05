@@ -22,7 +22,7 @@ public class PostListAdapter extends ParseQueryAdapter<ParseObject> {
             @Override
             public ParseQuery<ParseObject> create() {
                 ParseQuery query = new ParseQuery(ParseClass.Post.toString());
-                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_ELSE_NETWORK);
+                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
                 query.orderByDescending("updatedAt");
                 query.include(ParsePostField.createdBy.toString());
                 return query;
