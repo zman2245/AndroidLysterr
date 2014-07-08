@@ -1,5 +1,6 @@
 package com.lysterr.Lysterr.fragments;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -26,7 +27,8 @@ import java.util.List;
  * see: https://parse.com/docs/android_guide#ui-queryadapter
  * for customizing the ParseQueryAdapter
  */
-public class PostListFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class PostListFragment extends ListFragment
+        implements SwipeRefreshLayout.OnRefreshListener, ActionBar.OnNavigationListener, ParseQueryAdapter.OnQueryLoadListener {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ParseQueryAdapter<ParseObject> mAdapter;
 
@@ -39,6 +41,7 @@ public class PostListFragment extends ListFragment implements SwipeRefreshLayout
         super.onCreate(savedInstanceState);
 
         mAdapter = new PostListAdapter(getActivity());
+        mAdapter.addOnQueryLoadListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -88,19 +91,39 @@ public class PostListFragment extends ListFragment implements SwipeRefreshLayout
     public void onRefresh() {
         mAdapter.loadObjects();
         mAdapter.notifyDataSetChanged();
-        mAdapter.addOnQueryLoadListener(new ParseQueryAdapter.OnQueryLoadListener<ParseObject>() {
-            @Override
-            public void onLoading() {
+    }
 
-            }
+    @Override
+    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+        switch (itemPosition) {
+            case 0:
+                // all
 
-            @Override
-            public void onLoaded(List<ParseObject> parseObjects, Exception e) {
-                if (!PostListFragment.this.isDetached() && getView() != null) {
-                    mSwipeRefreshLayout.setRefreshing(false);
-                }
-            }
-        });
+                break;
+
+            case 1:
+                // my own
+
+                break;
+
+            case 2:
+                // within 5 miles
+
+                break;
+        }
+        return false;
+    }
+
+    @Override
+    public void onLoading() {
+
+    }
+
+    @Override
+    public void onLoaded(List list, Exception e) {
+        if (!PostListFragment.this.isDetached() && getView() != null) {
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
     }
 
     /**

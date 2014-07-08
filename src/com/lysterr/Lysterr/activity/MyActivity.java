@@ -1,5 +1,6 @@
 package com.lysterr.Lysterr.activity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.fragments.PostDetailsFragment;
 import com.lysterr.Lysterr.fragments.PostListFragment;
@@ -18,6 +20,8 @@ import com.lysterr.Lysterr.postflow.PostFlowNavFragment;
 import com.lysterr.Lysterr.util.Registry;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
+
+import java.util.ArrayList;
 
 public class MyActivity extends FragmentActivity implements PostListDelegate {
     /**
@@ -48,15 +52,25 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
         super.onResume();
 
         if (!isLoggedIn()) {
+            removeFragment();
             showLogin();
+            getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         } else if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) == null) {
-            showPostList();
+            PostListFragment f = showPostList();
+
+            getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+            ArrayList<String> itemList = new ArrayList<String>();
+            itemList.add("All Listings");
+            itemList.add("Listings in 5 Miles");
+            itemList.add("My Listings");
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itemList);
+
+            getActionBar().setListNavigationCallbacks(adapter, f);
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("LYSTERR", "res code: " + resultCode);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -126,12 +140,14 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
         startActivityForResult(builder.build(), 0);
     }
 
-    private void showPostList() {
+    private PostListFragment showPostList() {
         PostListFragment f = PostListFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, f, "post-fragment")
                 .addToBackStack("post-fragment")
                 .commit();
+
+        return f;
     }
 
     private void showPostDetails(String postId) {
@@ -140,6 +156,13 @@ public class MyActivity extends FragmentActivity implements PostListDelegate {
                 .replace(R.id.fragment_container, f, "post-details-fragment")
                 .addToBackStack("post-details-fragment")
                 .commit();
+    }
+
+    private void removeFragment() {
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if (f != null) {
+            getSupportFragmentManager().beginTransaction().remove(f).commitAllowingStateLoss();
+        }
     }
 
     @Override
