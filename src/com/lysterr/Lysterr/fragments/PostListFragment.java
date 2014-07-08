@@ -50,7 +50,7 @@ public class PostListFragment extends ListFragment implements SwipeRefreshLayout
         View v = super.onCreateView(inflater, container, savedInstanceState);
 
         // Now create a SwipeRefreshLayout to wrap the fragment's content view
-        mSwipeRefreshLayout = new SwipeRefreshLayout(container.getContext());
+        mSwipeRefreshLayout = new ListFragmentSwipeRefreshLayout(container.getContext());
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
         // Add the list fragment's content view to the SwipeRefreshLayout, making sure that it fills
@@ -143,7 +143,7 @@ public class PostListFragment extends ListFragment implements SwipeRefreshLayout
          * Handles platform version differences, providing backwards compatible functionality where
          * needed.
          */
-        private static boolean canListViewScrollUp(ListView listView) {
+        private boolean canListViewScrollUp(ListView listView) {
             if (android.os.Build.VERSION.SDK_INT >= 14) {
                 // For ICS and above we can call canScrollVertically() to determine this
                 return ViewCompat.canScrollVertically(listView, -1);
