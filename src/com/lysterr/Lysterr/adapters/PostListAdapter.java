@@ -17,17 +17,8 @@ import com.parse.ParseUser;
 public class PostListAdapter extends ParseQueryAdapter<ParseObject> {
     private String mPosterFormat;
 
-    public PostListAdapter(Context context) {
-        super(context, new QueryFactory<ParseObject>() {
-            @Override
-            public ParseQuery<ParseObject> create() {
-                ParseQuery query = new ParseQuery(ParseClass.Post.toString());
-                query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
-                query.orderByDescending("updatedAt");
-                query.include(ParsePostField.createdBy.toString());
-                return query;
-            }
-        });
+    public PostListAdapter(Context context, QueryFactory<ParseObject> queryFactory) {
+        super(context, queryFactory);
 
         setTextKey("text");
         setImageKey("imageThumb");

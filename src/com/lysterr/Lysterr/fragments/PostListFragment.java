@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.adapters.PostListAdapter;
+import com.lysterr.Lysterr.factories.PostListQueryFactory;
 import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
+import com.lysterr.Lysterr.util.Registry;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
@@ -31,6 +33,8 @@ public class PostListFragment extends ListFragment
         implements SwipeRefreshLayout.OnRefreshListener, ActionBar.OnNavigationListener, ParseQueryAdapter.OnQueryLoadListener {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ParseQueryAdapter<ParseObject> mAdapter;
+    private PostListQueryFactory mQueryFactory;
+    private boolean mDataIsLoading = false;
 
     public static PostListFragment newInstance() {
         return new PostListFragment();
@@ -40,8 +44,8 @@ public class PostListFragment extends ListFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mAdapter = new PostListAdapter(getActivity());
-        mAdapter.addOnQueryLoadListener(this);
+        mQueryFactory = new PostListQueryFactory();
+        reinitAdapter();
 
         setHasOptionsMenu(true);
     }
@@ -89,8 +93,10 @@ public class PostListFragment extends ListFragment
 
     @Override
     public void onRefresh() {
-        mAdapter.loadObjects();
-        mAdapter.notifyDataSetChanged();
+        if (!mDataIsLoading) {
+            mAdapter.loadObjects();
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -98,17 +104,20 @@ public class PostListFragment extends ListFragment
         switch (itemPosition) {
             case 0:
                 // all
-
+                mQueryFactory.setAllQuery();
+                reinitAdapter();
                 break;
 
             case 1:
-                // my own
-
+                // within 5 miles
+                mQueryFactory.setLocationQuery(Registry.sLocation.getLatitude(), Registry.sLocation.getLongitude(), 5.0);
+                reinitAdapter();
                 break;
 
             case 2:
-                // within 5 miles
-
+                // my own
+                mQueryFactory.setMyQuery();
+                reinitAdapter();
                 break;
         }
         return false;
@@ -116,14 +125,26 @@ public class PostListFragment extends ListFragment
 
     @Override
     public void onLoading() {
-
+        mDataIsLoading = true;
     }
 
     @Override
     public void onLoaded(List list, Exception e) {
+        mDataIsLoading = false;
         if (!PostListFragment.this.isDetached() && getView() != null) {
             mSwipeRefreshLayout.setRefreshing(false);
         }
+    }
+
+    private void reinitAdapter() {
+        if (mAdapter != null) {
+            mAdapter.removeOnQueryLoadListener(this);
+        }
+
+        mAdapter = new PostListAdapter(getActivity(), mQueryFactory);
+        mAdapter.addOnQueryLoadListener(this);
+
+        setListAdapter(mAdapter);
     }
 
     /**
