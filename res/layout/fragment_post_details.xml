@@ -3,6 +3,7 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
+              android:padding="10dp"
               android:weightSum="1">
 
     <ImageView
@@ -27,6 +28,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             />
 
         <View
@@ -38,6 +40,8 @@
             android:id="@+id/meta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#505050"
             />
 
         <View

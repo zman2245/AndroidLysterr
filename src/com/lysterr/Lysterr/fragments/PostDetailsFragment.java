@@ -80,6 +80,8 @@ public class PostDetailsFragment extends Fragment {
 
                     loadImage(post);
                     loadCreatedByUser(post);
+
+                    getActivity().getActionBar().setTitle(post.getString(ParsePostField.name.toString()));
                 } else {
                     DebugUtil.debugException(e);
                     UiUtil.showToast(R.string.error_post_details_load);
