@@ -24,7 +24,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2886686f-2068-411b-8c73-4c7ee3f7bb4a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java" afterPath="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/fragment_new_post_image.xml" afterPath="$PROJECT_DIR$/res/layout/fragment_new_post_image.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Lysterr.iws" />
@@ -88,54 +91,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.653846" vertical-offset="270" max-vertical-offset="1035">
-              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-              <folding>
-                <element signature="e#788#806#0" expanded="true" />
-                <element signature="e#1001#1019#0" expanded="true" />
-                <element signature="e#1340#1364#0" expanded="true" />
-                <element signature="e#2074#2092#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostListQueryFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/factories/PostListQueryFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="196" max-vertical-offset="1185">
-              <caret line="66" column="36" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#658#659#0" expanded="true" />
-                <element signature="e#687#688#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
-                <element signature="e#777#778#0" expanded="true" />
-                <element signature="e#2261#2539#0" expanded="true" />
-                <element signature="e#2528#2529#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+              <caret line="18" column="88" selection-start-line="18" selection-start-column="88" selection-end-line="18" selection-end-column="88" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostListFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fragment_new_post_image.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/fragment_new_post_image.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.333333" vertical-offset="0" max-vertical-offset="375">
+              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+              <folding>
+                <element signature="e#365#396#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostFlowImageFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2340">
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1991#2152#0" expanded="true" />
+                <element signature="e#2141#2142#0" expanded="true" />
+                <element signature="e#3867#3897#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewPostModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/model/NewPostModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostFlowConfirmFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="262" max-vertical-offset="840">
+              <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DebugUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/util/DebugUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.026706232" vertical-offset="1737" max-vertical-offset="3570">
-              <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3570">
+              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
               <folding>
                 <element signature="e#6215#6943#0" expanded="true" />
                 <element signature="e#6576#6917#0" expanded="true" />
@@ -214,7 +244,6 @@
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/NewPostDescriptionModel.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/PostFlowMaster.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowDetailsFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/model/NewPostModel.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/model/NewGenericPostModel.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConditionsFragment.java" />
@@ -226,7 +255,6 @@
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/model/NewCarPostModel.java" />
         <option value="$PROJECT_DIR$/res/menu/menu_post_list.xml" />
         <option value="$PROJECT_DIR$/res/menu/menu_main.xml" />
-        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java" />
         <option value="$PROJECT_DIR$/res/drawable/primary_button_bg_selector.xml" />
         <option value="$PROJECT_DIR$/res/layout/fragment_new_post_confirm.xml" />
         <option value="$PROJECT_DIR$/res/values/sytles.xml" />
@@ -234,7 +262,6 @@
         <option value="$PROJECT_DIR$/res/drawable/primary_button_pressed.xml" />
         <option value="$PROJECT_DIR$/res/layout/fragment_new_post_details.xml" />
         <option value="$PROJECT_DIR$/res/layout/fragment_new_post_car_details.xml" />
-        <option value="$PROJECT_DIR$/res/layout/fragment_new_post_image.xml" />
         <option value="$PROJECT_DIR$/res/layout/list_item_post.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_post_flow.xml" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/PostFlowActivity.java" />
@@ -243,11 +270,14 @@
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostDetailsFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/fragment_post_details.xml" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/activity/MyActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/layout/post_list_header.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/factories/PostListQueryFactory.java" />
         <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/factories/PostListQueryFactory.java" />
+        <option value="$PROJECT_DIR$/res/layout/fragment_new_post_image.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java" />
       </list>
     </option>
   </component>
@@ -640,7 +670,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19553073" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21564245" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3452514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -682,25 +712,19 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowCarOptionsFragment.java</url>
           <line>48</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="33" />
+      <option name="time" value="35" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -708,11 +732,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/drawable-ldpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/data/ParsePostField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28253424" vertical-offset="0" max-vertical-offset="584">
@@ -777,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/model/NewPostModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32281205" vertical-offset="0" max-vertical-offset="697">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConditionsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23672883" vertical-offset="0" max-vertical-offset="1275">
@@ -795,16 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="1590">
           <caret line="39" column="72" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.230769" vertical-offset="679" max-vertical-offset="1770">
-          <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,6 +824,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4232558" vertical-offset="1498" max-vertical-offset="3030">
           <caret line="112" column="71" selection-start-line="112" selection-start-column="71" selection-end-line="112" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -850,14 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.4288256" vertical-offset="0" max-vertical-offset="2565">
           <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13345195" vertical-offset="0" max-vertical-offset="840">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -966,17 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1005">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/fragment_new_post_image.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1099,27 +1085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.653846" vertical-offset="270" max-vertical-offset="1035">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-          <folding>
-            <element signature="e#788#806#0" expanded="true" />
-            <element signature="e#1001#1019#0" expanded="true" />
-            <element signature="e#1340#1364#0" expanded="true" />
-            <element signature="e#2074#2092#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/post_list_header.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1131,10 +1096,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3570">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+          <folding>
+            <element signature="e#6215#6943#0" expanded="true" />
+            <element signature="e#6576#6917#0" expanded="true" />
+            <element signature="e#6898#6899#0" expanded="true" />
+            <element signature="e#6932#6933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/factories/PostListQueryFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="196" max-vertical-offset="1185">
-          <caret line="66" column="36" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.6884273" vertical-offset="511" max-vertical-offset="1185">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#658#659#0" expanded="true" />
@@ -1147,15 +1125,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/fragments/PostListFragment.java">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.026706232" vertical-offset="1737" max-vertical-offset="3570">
-          <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.3472222" vertical-offset="270" max-vertical-offset="1035">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
           <folding>
-            <element signature="e#6215#6943#0" expanded="true" />
-            <element signature="e#6576#6917#0" expanded="true" />
-            <element signature="e#6898#6899#0" expanded="true" />
-            <element signature="e#6932#6933#0" expanded="true" />
+            <element signature="e#788#806#0" expanded="true" />
+            <element signature="e#1001#1019#0" expanded="true" />
+            <element signature="e#1340#1364#0" expanded="true" />
+            <element signature="e#2074#2092#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/fragment_new_post_image.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.333333" vertical-offset="0" max-vertical-offset="375">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding>
+            <element signature="e#365#396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/util/DebugUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+          <caret line="18" column="88" selection-start-line="18" selection-start-column="88" selection-end-line="18" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/model/NewPostModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowConfirmFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="262" max-vertical-offset="840">
+          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lysterr/Lysterr/postflow/steps/PostFlowImageFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2340">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1991#2152#0" expanded="true" />
+            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#3867#3897#0" expanded="true" />
           </folding>
         </state>
       </provider>
