@@ -1,5 +1,7 @@
 package com.lysterr.Lysterr.factories;
 
+import android.os.Handler;
+import android.os.Looper;
 import com.lysterr.Lysterr.data.ParseClass;
 import com.lysterr.Lysterr.data.ParsePostField;
 import com.parse.ParseGeoPoint;
@@ -54,5 +56,18 @@ public class PostListQueryFactory implements ParseQueryAdapter.QueryFactory<Pars
         sAllQuery.include(ParsePostField.createdBy.toString());
 
         mQuery = sAllQuery;
+    }
+
+    public void setSearchText(final String searchText, final Runnable callback) {
+        // mQuery.cancel() can block
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mQuery.cancel();
+                mQuery.whereContains(ParsePostField.text.toString(), searchText);
+
+                new Handler(Looper.getMainLooper()).post(callback);
+            }
+        }).start();
     }
 }

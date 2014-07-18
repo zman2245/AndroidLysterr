@@ -3,15 +3,19 @@ package com.lysterr.Lysterr.fragments;
 import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 import com.lysterr.Lysterr.R;
 import com.lysterr.Lysterr.adapters.PostListAdapter;
@@ -30,8 +34,11 @@ import java.util.List;
  * for customizing the ParseQueryAdapter
  */
 public class PostListFragment extends ListFragment
-        implements SwipeRefreshLayout.OnRefreshListener, ActionBar.OnNavigationListener, ParseQueryAdapter.OnQueryLoadListener {
+        implements SwipeRefreshLayout.OnRefreshListener, ActionBar.OnNavigationListener, ParseQueryAdapter.OnQueryLoadListener, TextWatcher {
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private View mHeaderView;
+    private EditText mSearchView;
+
     private ParseQueryAdapter<ParseObject> mAdapter;
     private PostListQueryFactory mQueryFactory;
     private boolean mDataIsLoading = false;
@@ -45,7 +52,6 @@ public class PostListFragment extends ListFragment
         super.onCreate(savedInstanceState);
 
         mQueryFactory = new PostListQueryFactory();
-        reinitAdapter();
 
         setHasOptionsMenu(true);
     }
@@ -55,6 +61,9 @@ public class PostListFragment extends ListFragment
         setListAdapter(mAdapter);
 
         View v = super.onCreateView(inflater, container, savedInstanceState);
+        mHeaderView = inflater.inflate(R.layout.post_list_header, null, false);
+        mSearchView = (EditText)mHeaderView.findViewById(R.id.search);
+        mSearchView.addTextChangedListener(this);
 
         // Now create a SwipeRefreshLayout to wrap the fragment's content view
         mSwipeRefreshLayout = new ListFragmentSwipeRefreshLayout(container.getContext());
@@ -70,6 +79,21 @@ public class PostListFragment extends ListFragment
 
         // Now return the SwipeRefreshLayout as this fragment's content view
         return mSwipeRefreshLayout;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        getListView().addHeaderView(mHeaderView);
+        reinitAdapter();
+    }
+
+    @Override
+    public void onDestroyView() {
+        setListAdapter(null);
+
+        super.onDestroyView();
     }
 
     @Override
@@ -146,6 +170,40 @@ public class PostListFragment extends ListFragment
 
         setListAdapter(mAdapter);
     }
+
+    // TODO: move text watcher stuff to its own class
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+    private String mSearchString = "";
+    @Override
+    public void onTextChanged(final CharSequence s, int start, int before, int count) {
+
+        mSearchString = s.toString();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!mSearchString.equals(s.toString())) {
+                    // Search string has already been updated so do nothing! Let the next scheduled runnable try!
+                    return;
+                }
+
+                mQueryFactory.setSearchText(mSearchString.toString(), new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!PostListFragment.this.isDetached() && getView() != null) {
+                            reinitAdapter();
+                            mSearchView.requestFocus();
+                        }
+                    }
+                });
+            }
+        }, 500);
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {}
 
     /**
      * Sub-class of {@link android.support.v4.widget.SwipeRefreshLayout} for use in this

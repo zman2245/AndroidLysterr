@@ -31,6 +31,7 @@
         <activity
             android:name=".postflow.PostFlowActivity"
             android:label="@string/new_post_label"
+            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".activity.MyActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
