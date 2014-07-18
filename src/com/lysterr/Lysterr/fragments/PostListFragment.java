@@ -22,6 +22,7 @@ import com.lysterr.Lysterr.adapters.PostListAdapter;
 import com.lysterr.Lysterr.factories.PostListQueryFactory;
 import com.lysterr.Lysterr.fragments.interfaces.PostListDelegate;
 import com.lysterr.Lysterr.util.Registry;
+import com.lysterr.Lysterr.util.UiUtil;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 
@@ -129,18 +130,24 @@ public class PostListFragment extends ListFragment
             case 0:
                 // all
                 mQueryFactory.setAllQuery();
+                mSearchView.setText("");
+                UiUtil.hideKeyboard(getActivity());
                 reinitAdapter();
                 break;
 
             case 1:
                 // within 5 miles
                 mQueryFactory.setLocationQuery(Registry.sLocation.getLatitude(), Registry.sLocation.getLongitude(), 5.0);
+                mSearchView.setText("");
+                UiUtil.hideKeyboard(getActivity());
                 reinitAdapter();
                 break;
 
             case 2:
                 // my own
                 mQueryFactory.setMyQuery();
+                mSearchView.setText("");
+                UiUtil.hideKeyboard(getActivity());
                 reinitAdapter();
                 break;
         }
