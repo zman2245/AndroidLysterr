@@ -77,8 +77,13 @@ public class PostFlowImageFragment extends Fragment {
 
             try {
                 Bitmap bmp = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), _uri);
-                String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() +
-                        "/lysterr";
+
+                if (bmp == null) {
+                    UiUtil.showToast(R.string.error_post_image_load);
+                    return;
+                }
+
+                String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/lysterr";
                 File dir = new File(file_path);
                 if(!dir.exists())
                     dir.mkdirs();

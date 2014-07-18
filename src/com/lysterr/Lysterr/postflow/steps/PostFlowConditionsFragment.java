@@ -75,5 +75,10 @@ public class PostFlowConditionsFragment extends Fragment implements CompoundButt
         data.setSelectedDescription(buttonView.getText().toString());
 
         PostFlowNavFragment.notifyStepComplete(this, data);
+
+        // so user can actually come back and stay on this page
+        mExcellent.setChecked(false);
+        mGood.setChecked(false);
+        mAverage.setChecked(false);
     }
 }

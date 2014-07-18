@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.lysterr.Lysterr.R;
@@ -21,7 +22,7 @@ import com.lysterr.Lysterr.postflow.model.NewPostModel;
  */
 public class PostFlowConfirmFragment extends Fragment {
     private ImageView mImage;
-    private TextView mDescription;
+    private EditText mDescription;
     private Button mApprove;
 
     public static PostFlowConfirmFragment newInstance(NewPostModel data) {
@@ -35,7 +36,7 @@ public class PostFlowConfirmFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_new_post_confirm, container, false);
 
         mImage = (ImageView)v.findViewById(R.id.image);
-        mDescription = (TextView)v.findViewById(R.id.description);
+        mDescription = (EditText)v.findViewById(R.id.description);
         mApprove = (Button)v.findViewById(R.id.approve);
 
         final NewPostModel data = (NewPostModel)getArguments().getSerializable(PostFlowNavFragment.ARG_DATA);
@@ -46,6 +47,9 @@ public class PostFlowConfirmFragment extends Fragment {
         mApprove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //user may have editted the text
+                data.setSelectedDescription(mDescription.getText().toString());
+
                 PostFlowNavFragment.notifyStepComplete(PostFlowConfirmFragment.this, data);
             }
         });
