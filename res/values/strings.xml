@@ -36,4 +36,5 @@
     <string name="new_post_car_doors"># Doors (optional)</string>
 
     <string name="format_poster_line">Posted by %1$s</string>
+
 </resources>
