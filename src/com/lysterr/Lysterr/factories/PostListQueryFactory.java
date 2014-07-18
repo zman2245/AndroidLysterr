@@ -64,7 +64,7 @@ public class PostListQueryFactory implements ParseQueryAdapter.QueryFactory<Pars
             @Override
             public void run() {
                 mQuery.cancel();
-                mQuery.whereContains(ParsePostField.text.toString(), searchText);
+                mQuery.whereMatches(ParsePostField.text.toString(), "\\b" + searchText, "i");
 
                 new Handler(Looper.getMainLooper()).post(callback);
             }
